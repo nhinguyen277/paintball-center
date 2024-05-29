@@ -1,0 +1,112 @@
+.signIn {
+  margin-top: 2px;
+  height: 700px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: url("../img/signin.jpg") no-repeat;
+  background-size: cover;
+  background-position: center;
+  z-index: 1;
+}
+
+.wrapper {
+  width: 420px;
+  background: transparent;
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(30px);
+  box-shadow: 0 0 10px var(--main-color);
+  color: white;
+  border-radius: 10px;
+  padding: 30px 40px;
+}
+
+.wrapper h1 {
+  font-size: 36px;
+  text-align: center;
+}
+
+.wrapper .inputBox {
+  position: relative;
+  width: 100%;
+  height: 50px;
+  margin: 30px 0;
+}
+
+.inputBox input {
+  width: 100%;
+  height: 100%;
+  background: transparent;
+  outline: none;
+  border: 2px solid var(--third-accent);
+  border-radius: 40px;
+  font-size: 16px;
+  color: var(--second-accent);
+  padding: 20px 45px 20px 20px;
+}
+
+.inputBox input::placeholder {
+  color: var(--second-accent);
+  font-family: "Share Tech", sans-serif;
+}
+
+.inputBox .icon {
+  position: absolute;
+  right: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 16px;
+}
+
+.wrapper .forgot {
+  display: flex;
+  justify-content: space-between;
+  font-size: 14.5px;
+  margin: -15px 0 15px;
+}
+
+.forgot label input {
+  accent-color: var(--second-accent);
+  margin-right: 4px;
+}
+
+.forgot a {
+  color: var(--second-accent);
+  text-decoration: none;
+  margin-left: 20px;
+}
+
+.forgot a:hover {
+  text-decoration: underline;
+}
+
+.wrapper button {
+  width: 100%;
+  height: 45px;
+  background: var(--second-accent);
+  border: none;
+  outline: none;
+  border-radius: 40px;
+  box-shadow: 0 0 10px var(--main-color);
+  cursor: pointer;
+  font-size: 20px;
+  color: var(--main-color);
+  font-weight: 700;
+}
+
+.wrapper .register {
+  font-size: 14.5px;
+  text-align: center;
+  margin: 20px 0 15px;
+}
+
+.register p a {
+  color: var(--second-accent);
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.register p a:hover {
+  text-decoration: underline;
+  color: var(--main-accent);
+}

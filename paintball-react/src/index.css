@@ -1,0 +1,127 @@
+:root {
+  font-family: "Share Tech", sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+
+  color-scheme: light dark;
+  color: rgba(255, 255, 255, 0.87);
+  background-color: #242424;
+  /* background-image: url("img/back1.jpg");
+  background-repeat: no-repeat;
+  background-size: cover; */
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  --main-color: #100f0f;
+  --main-accent: #ad090a;
+  --second-accent: #fffcfc;
+  --third-accent: #cdc9c8;
+}
+#root {
+  max-width: 100%;
+  margin: 0 auto;
+  padding: 0.5em;
+  text-align: center;
+  min-height: 100vh;
+}
+
+a {
+  font-weight: 500;
+  color: var(--second-accent);
+  text-decoration: inherit;
+}
+a:hover {
+  color: var(--third-accent);
+}
+
+body {
+  margin: auto;
+  /* display: flex; */
+  place-items: center;
+  min-width: 320px;
+  min-height: 100vh;
+}
+
+/* h1 {
+  font-size: 3.2em;
+  line-height: 1.1;
+} */
+
+button {
+  margin-top: 1em;
+  border-radius: 8px;
+  border: 1px solid transparent;
+  padding: 0.6em 1.2em;
+  font-size: 1em;
+  font-weight: 500;
+  font-family: inherit;
+  background-color: var(--main-color);
+  cursor: pointer;
+  transition: border-color 0.25s;
+}
+button:hover {
+  border-color: var(--main-accent);
+}
+/* button:focus,
+button:focus-visible {
+  outline: 4px auto -webkit-focus-ring-color;
+} */
+
+@media (prefers-color-scheme: light) {
+  :root {
+    color: var(--second-accent);
+    background-color: var(--main-color);
+  }
+  a:hover {
+    color: var(--main-accent);
+  }
+  button {
+    background-color: var(--second-accent);
+  }
+
+  #scenarioPart {
+    margin: 0 auto;
+  }
+  .footerContainer {
+    border-top: var(--main-accent) 1px solid;
+    margin-top: 2px;
+    height: 200px;
+    display: flex;
+    column-gap: 5em;
+    margin-bottom: 20px;
+  }
+
+  #footer p {
+    text-align: left;
+    margin: 30px 0 0 30px;
+  }
+}
+
+/*Tablet style*/
+@media screen and (max-width: 64em) and (min-width: 46.25em) {
+  .footerContainer {
+    margin-top: 2px;
+    height: 200px;
+    display: flex;
+    column-gap: 2em;
+  }
+}
+
+/*Phone style*/
+
+@media screen and (max-width: 36em) and (min-width: 20em) {
+  .footerContainer {
+    margin-top: 2px;
+    height: 400px;
+    display: flex;
+    flex-flow: row wrap;
+    column-gap: 3em;
+  }
+
+  #footer p {
+    text-align: left;
+    margin: 0 auto;
+  }
+}
