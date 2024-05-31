@@ -234,7 +234,19 @@ h4 {
   padding-top: 50px;
   width: 100%;
 }
-/*Scenario*/
+
+/*CUSTOMER PAGE*/
+.target {
+  width: 600px;
+  height: 600px;
+}
+
+.signOut {
+  margin: 60px;
+}
+
+/*SCENARIO*/
+
 .scenarios {
   display: flex;
   flex-flow: row wrap;

@@ -12,15 +12,15 @@ export default function SignIn() {
   const [email, setEmail] = useState();
   const [password, setPassword] = useState();
   const navigate = useNavigate();
-
+  axios.defaults.withCredentials = true;
   const handleSubmit = (e) => {
     e.preventDefault();
     axios
       .post("http://localhost:3000/signin", { email, password })
       .then((result) => {
-        console.log(result);
+        // console.log(result);
         if (result.data === "Success") {
-          navigate("/");
+          navigate("/customer/dashboard");
         } else if (result.data === "The password is incorrect") {
           navigate("/signin");
           alert("please enter the right password");

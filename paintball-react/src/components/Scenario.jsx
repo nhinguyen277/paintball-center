@@ -2,7 +2,7 @@ import styles from "../css/styles.module.css";
 import { Link } from "react-router-dom";
 export default function Scenario(props) {
   return (
-    <Link to={`/scenarios/${props.id}`}>
+    <Link to={`admin/scenarios/${props.id}`}>
       <div id="scenario" className={styles.scenario}>
         <img
           className={styles.scenImg}

@@ -2,10 +2,13 @@ const express = require("express");
 const path = require("path"); // module to help with file path
 const dotenv = require("dotenv");
 const bcrypt = require("bcrypt");
+const jwt = require("jsonwebtoken");
+const parser = require("cookie-parser");
 
 dotenv.config(); // load local evironment variables from .env file.
 const cors = require("cors"); //need this to set this API to allow requests from other servers
 const { MongoClient, ObjectId } = require("mongodb");
+const { timeStamp } = require("console");
 
 const app = express();
 const port = process.env.PORT || "3000";
@@ -19,9 +22,12 @@ app.use(express.json()); //need this line to be able to receive/parse JSON from 
 //allow requests from all servers
 app.use(
   cors({
-    origin: "*",
+    origin: ["http://localhost:5173"],
+    credentials: true,
   })
 );
+
+app.use(parser());
 
 //API endpoints
 
@@ -36,6 +42,8 @@ app.post("/register", async (request, response) => {
   let email = request.body.email;
   let pass = request.body.password;
   let phone = request.body.phone;
+  let create = new Date();
+  let deleted = null;
   bcrypt.hash(pass, 12).then((hash) => {
     let infor = {
       firstname: firstname,
@@ -43,6 +51,8 @@ app.post("/register", async (request, response) => {
       email: email,
       password: hash,
       phone: phone,
+      created_at: create,
+      deleted_at: deleted,
     };
     account(infor);
     response.redirect("http://localhost:5173/signin");
@@ -57,6 +67,10 @@ app.post("/signin", async (request, response) => {
   if (user) {
     bcrypt.compare(pass, user.password, (err, res) => {
       if (res) {
+        const token = jwt.sign({ email: user.email }, process.env.KEY, {
+          expiresIn: "1h",
+        });
+        response.cookie("token", token, { maxAge: 360000 });
         response.json("Success");
         // response.redirect("http://localhost:5173");
       } else {
@@ -68,6 +82,27 @@ app.post("/signin", async (request, response) => {
   }
 });
 
+const verifyUser = async (request, response, next) => {
+  try {
+    const token = request.cookies.token;
+    if (!token) {
+      return response.json({ status: false, message: "no token" });
+    }
+    const decoded = await jwt.verify(token, process.env.KEY);
+    next();
+  } catch (err) {
+    return response.json(err);
+  }
+};
+
+app.get("/verify", verifyUser, (request, response) => {
+  return response.json({ status: true, message: "authorized" });
+});
+
+app.get("/signout", (request, response) => {
+  response.clearCookie("token");
+  return response.json({ status: true });
+});
 /*
  * returns: an array of staff list
  */
