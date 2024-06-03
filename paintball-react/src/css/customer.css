@@ -1,0 +1,10 @@
+.layout {
+  display: flex;
+  /* column-gap: 1em; */
+  margin: 0 auto;
+  padding-bottom: 50px;
+}
+
+.content {
+  margin: 0 auto;
+}

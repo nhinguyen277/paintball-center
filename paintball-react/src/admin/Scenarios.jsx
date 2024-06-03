@@ -1,5 +1,5 @@
 import styles from "../css/styles.module.css";
-import Scenarios from "../components/ScenarioList";
+import Scenarios from "../components/admin/ScenarioList";
 import SideNav from "../components/SideNav";
 
 export default function Scenario() {

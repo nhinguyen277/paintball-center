@@ -61,6 +61,15 @@ a:hover {
   border-bottom-color: var(--main-accent);
 }
 
+.headContainer h1 {
+  font-size: 2em;
+}
+
+.headContainer a {
+  text-decoration: none;
+  color: var(--second-accent);
+}
+
 .logo {
   height: 100px;
   width: 120px;
@@ -228,6 +237,73 @@ h4 {
   padding-bottom: 50px;
 }
 
+/*SCHEDULE*/
+.contentTable {
+  width: 800px !important;
+}
+
+.format a {
+  text-decoration: none;
+  padding: 10px;
+  color: var(--second-accent);
+  border: var(--second-accent) 1px solid;
+  border-radius: 5px;
+  padding: 5px 10px;
+  width: 40%;
+  text-align: center;
+  margin: 5px 10px;
+}
+
+.format a:hover {
+  border-color: var(--main-accent);
+}
+
+.addLink {
+  margin: 40px 0 40px 0;
+  text-align: right;
+}
+.addLink a {
+  text-decoration: none;
+  padding: 15px;
+  color: var(--second-accent);
+  border: var(--second-accent) 1px solid;
+  border-radius: 10px;
+  text-align: center;
+  /* margin: 40px; */
+}
+
+.addLink a:hover {
+  border-color: var(--main-accent);
+}
+
+/*BOOKING*/
+.information {
+  margin: 0 auto;
+  padding: 20px 40px;
+  width: 600px;
+  height: 400px;
+  background-color: rgb(217, 217, 217, 20%);
+  border-radius: 20px;
+}
+.information h2 {
+  text-align: left;
+}
+.booking {
+  margin-bottom: 40px;
+}
+
+.bookingbutton a {
+  float: right;
+  /* border: var(--main-color) 0.5px solid; */
+  border-radius: 5px;
+  padding: 5px 10px;
+  width: 20%;
+  text-align: center;
+  color: var(--second-accent);
+  background-color: var(--main-color);
+  margin: auto 15px;
+}
+
 /* HOME */
 
 .pageContent {
@@ -242,7 +318,19 @@ h4 {
 }
 
 .signOut {
-  margin: 60px;
+  margin: 25px;
+}
+.signOut button {
+  font-weight: 500;
+  font-size: 22px;
+  border: var(--second-accent) 1px solid;
+  color: var(--second-accent);
+  text-decoration: inherit;
+  background-color: var(--main-color);
+}
+.signOut button:hover {
+  color: var(--main-accent);
+  border: var(--main-accent) 1px solid;
 }
 
 /*SCENARIO*/
@@ -301,6 +389,11 @@ h4 {
   margin: 0 auto;
 }
 
+.viewButton {
+  width: 100%;
+  margin: 0 80px;
+}
+
 .buttonBar a {
   float: left;
   border: var(--main-color) 0.5px solid;
@@ -320,6 +413,31 @@ h4 {
   box-shadow: none;
   border-radius: 5px;
   border: var(--second-accent) 1px solid;
+}
+
+.detail {
+  width: 100%;
+  padding: 20px;
+}
+
+.imgDetail {
+  width: 550px;
+  height: 350px;
+  margin: 20px;
+}
+
+.detailContent p {
+  font-size: 18px;
+  text-align: justify;
+  margin: 0 50px;
+}
+
+.bookingLink a {
+  color: var(--main-accent);
+}
+
+.bookingLink a:hover {
+  text-decoration: underline;
 }
 
 /* FOOTER */

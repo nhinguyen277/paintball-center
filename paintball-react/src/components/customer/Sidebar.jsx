@@ -15,17 +15,17 @@ export default function SideBar() {
     <SideNav
       onSelect={(selected) => {
         console.log(selected);
-        navigate("/admin/" + selected);
+        navigate("/customer/" + selected);
       }}
       className="mySideNav"
     >
       <SideNav.Toggle />
-      <SideNav.Nav defaultSelected="home">
-        <NavItem eventKey="home">
+      <SideNav.Nav defaultSelected="dashboard">
+        <NavItem eventKey="dashboard">
           <NavIcon>
             <i className="fa fa-fw fa-home" style={{ fontSize: "1.5em" }} />
           </NavIcon>
-          <NavText style={{ fontSize: "22px" }}>Home</NavText>
+          <NavText style={{ fontSize: "22px" }}>DashBoard</NavText>
         </NavItem>
         <NavItem eventKey="scenarios">
           <NavIcon>

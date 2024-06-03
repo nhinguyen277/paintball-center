@@ -1,5 +1,5 @@
 import styles from "../css/styles.module.css";
-// import SideBar from "../components/customer/Sidebar";
+import SideBar from "../components/customer/Sidebar";
 import target from "../img/Target.png";
 import React, { useEffect } from "react";
 import axios from "axios";
@@ -18,14 +18,11 @@ export default function Dashboard() {
 
   return (
     <>
-      <div className={styles.adminContainer}>
-        {/* <SideBar /> */}
-        <div className={styles.pageContent}>
-          <h1>WELCOME TO EPIC PAINTBALL ADVENTURES</h1>
-          <h1>PREPARE FOR UPCOMING JOURNEYS HERE.</h1>
-          <h1>SHOOT YOUR GUNS !</h1>
-          <img src={target} className={styles.target} alt="target" />
-        </div>
+      <div className={styles.pageContent}>
+        <h1>WELCOME TO EPIC PAINTBALL ADVENTURES</h1>
+        <h1>PREPARE FOR UPCOMING JOURNEYS HERE.</h1>
+        <h1>SHOOT YOUR GUNS !</h1>
+        <img src={target} className={styles.target} alt="target" />
       </div>
     </>
   );
