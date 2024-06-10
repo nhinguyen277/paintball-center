@@ -16,7 +16,7 @@ export default function BookingList() {
   return booking.map((b) => (
     <Booking
       key={
-        b.bookings._id +
+        b._id +
         b.customer.firstname +
         b.customer.lastname +
         b.scenario.title +
@@ -24,7 +24,7 @@ export default function BookingList() {
         b.schedule.date +
         b.schedule.time
       }
-      id={b.bookings._id}
+      id={b._id}
       title={b.scenario.title}
       date={b.schedule.date}
       time={b.schedule.time}

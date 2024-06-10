@@ -281,7 +281,7 @@ h4 {
   margin: 0 auto;
   padding: 20px 40px;
   width: 600px;
-  height: 400px;
+  height: 550px;
   background-color: rgb(217, 217, 217, 20%);
   border-radius: 20px;
 }
@@ -292,16 +292,58 @@ h4 {
   margin-bottom: 40px;
 }
 
-.bookingbutton a {
+.bookingbutton button {
   float: right;
   /* border: var(--main-color) 0.5px solid; */
+  text-decoration: none;
   border-radius: 5px;
-  padding: 5px 10px;
+  padding: 8px 10px !important;
   width: 20%;
   text-align: center;
   color: var(--second-accent);
   background-color: var(--main-color);
   margin: auto 15px;
+}
+
+.bookingbutton button:hover {
+  color: var(--main-accent);
+  background-color: var(--main-color);
+  border: var(--main-accent) 1px solid;
+}
+
+.formFormat {
+  width: 500px;
+  margin: 0 auto;
+  text-align: justify;
+}
+
+.formColor {
+  background-color: var(--main-color) !important;
+  border: var(--second-accent) 1px solid;
+  color: var(--second-accent) !important;
+}
+
+.m3 {
+  display: flex;
+  align-items: center;
+  gap: 2em;
+}
+
+.labelForm {
+  font-size: 25px;
+  width: 35%;
+}
+
+.btnForm {
+  float: right;
+  background-color: var(--main-color) !important;
+  border: var(--second-accent) 1px solid !important;
+  color: var(--second-accent) !important;
+}
+
+.btnForm:hover {
+  border: var(--main-accent) 1px solid !important;
+  color: var(--main-accent) !important;
 }
 
 /* HOME */
@@ -325,6 +367,7 @@ h4 {
   font-size: 22px;
   border: var(--second-accent) 1px solid;
   color: var(--second-accent);
+  border-radius: 10px;
   text-decoration: inherit;
   background-color: var(--main-color);
 }
@@ -418,6 +461,11 @@ h4 {
 .detail {
   width: 100%;
   padding: 20px;
+  height: 100%;
+}
+.detail h1 {
+  padding: 20px;
+  text-align: center;
 }
 
 .imgDetail {
@@ -445,10 +493,22 @@ h4 {
 .footerContainer {
   border-top: var(--main-accent) 1px solid;
   margin-top: 2px;
+  padding-top: 25px;
   height: 200px;
   display: flex;
   column-gap: 5em;
   margin-bottom: 20px;
+}
+
+.adminfooter {
+  border-top: var(--main-accent) 1px solid;
+}
+
+.footerContainer h2 {
+  font-size: 1.5em;
+}
+.footerContainer h5 {
+  font-size: 0.83em;
 }
 
 .logoFooter {
@@ -456,12 +516,42 @@ h4 {
   width: 200px;
   height: 160px;
 }
+
+.logoFooter2 {
+  margin-top: 30px;
+  width: 150px;
+  height: 110px;
+}
+
+.footerContainer2 {
+  border-top: var(--main-accent) 1px solid;
+  margin-top: 2px;
+  padding-top: 5px;
+  height: 120px;
+  display: flex;
+  column-gap: 5em;
+  margin-bottom: 20px;
+}
+
+.footerContainer2 h2 {
+  font-size: 1.5em;
+}
+
 .navFooter ul {
   margin-top: 30px;
   text-align: left;
   list-style: none;
   line-height: 1.7em;
   font-size: 30px;
+}
+
+.navFooter ul li a {
+  color: var(--second-accent);
+  text-decoration: none;
+}
+
+.navFooter ul li a:hover {
+  color: var(--main-accent);
 }
 
 .logoSide {
@@ -678,6 +768,14 @@ h4 {
 
   .headContainer {
     padding: 0;
+    height: 100px;
+  }
+  .headContainer h1 {
+    font-size: 1.5em;
+  }
+  .logo {
+    height: 80px;
+    width: 100px;
   }
   .siteName {
     font-size: 28px;
@@ -918,5 +1016,8 @@ h4 {
     /* width: 270px; */
     margin: 0 auto;
     /* color: var(--third-accent); */
+  }
+  .pageContent h1 {
+    font-size: 1.5em;
   }
 }

@@ -1,22 +1,22 @@
 import styles from "../css/styles.module.css";
-import Booking from "../components/admin/BookingList";
+import BookingList from "../components/admin/BookingList";
 import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
 import SideNav from "../components/SideNav";
-// import axios from "axios";
-// import { useNavigate } from "react-router-dom";
+import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
-export default function Schedule() {
-  //   const navigate = useNavigate();
-  //   axios.defaults.withCredentials = true;
-  //   useEffect(() => {
-  //     axios.get("http://localhost:3000/verify").then((res) => {
-  //       if (res.data.status) {
-  //       } else {
-  //         navigate("/");
-  //       }
-  //     });
-  //   }, []);
+export default function Booking() {
+  const navigate = useNavigate();
+  axios.defaults.withCredentials = true;
+  useEffect(() => {
+    axios.get("http://localhost:3000/verify").then((res) => {
+      if (res.data.status) {
+      } else {
+        navigate("/admin");
+      }
+    });
+  }, []);
 
   useEffect(() => {
     // Dynamically import Bootstrap CSS
@@ -25,7 +25,6 @@ export default function Schedule() {
   return (
     <>
       <div className={styles.adminContainer}>
-        <SideNav />
         <div id="scenarioPart">
           <h1 className={styles.scenarioTitle}>All Booking</h1>
           <div className={styles.addLink}>
@@ -45,7 +44,7 @@ export default function Schedule() {
               </tr>
             </thead>
             <tbody>
-              <Booking />
+              <BookingList />
             </tbody>
           </table>
         </div>

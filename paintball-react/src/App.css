@@ -76,6 +76,29 @@ html body {
   min-width: 170px !important;
 }
 
+.adminLogout {
+  display: flex;
+  position: absolute;
+  height: 120px;
+  left: 80%;
+  align-items: center;
+}
+
+.adminLogout button {
+  border-radius: 10px;
+  font-weight: 500;
+  font-size: 22px;
+  border: var(--second-accent) 1px solid;
+  color: var(--second-accent);
+  text-decoration: inherit;
+  background-color: var(--main-color);
+}
+
+.adminLogout button:hover {
+  border: var(--main-accent) 1px solid;
+  color: var(--main-accent);
+}
+
 @keyframes logo-spin {
   from {
     transform: rotate(0deg);
@@ -97,4 +120,25 @@ html body {
 
 .read-the-docs {
   color: #888;
+}
+
+/*Phone style*/
+
+@media screen and (max-width: 36em) and (min-width: 20em) {
+  .adminLogout {
+    height: 80px;
+    align-items: center;
+    height: 80px;
+  }
+  .adminLogout button {
+    display: flex;
+    padding: 0.5em 0.7em;
+    font-size: 0.8em;
+    align-items: center;
+  }
+
+  .mySideNav {
+    width: 60px;
+    min-width: 60px !important;
+  }
 }
