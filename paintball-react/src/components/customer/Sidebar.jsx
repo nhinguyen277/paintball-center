@@ -14,7 +14,6 @@ export default function SideBar() {
   return (
     <SideNav
       onSelect={(selected) => {
-        console.log(selected);
         navigate("/customer/" + selected);
       }}
       className="mySideNav"
@@ -25,7 +24,32 @@ export default function SideBar() {
           <NavIcon>
             <i className="fa fa-fw fa-home" style={{ fontSize: "1.5em" }} />
           </NavIcon>
-          <NavText style={{ fontSize: "22px" }}>DashBoard</NavText>
+          <NavText
+            style={{
+              fontSize: "22px",
+              backgroundColor: "black",
+              width: "180px",
+            }}
+          >
+            DashBoard
+          </NavText>
+        </NavItem>
+        <NavItem eventKey="profile">
+          <NavIcon>
+            <i
+              className="fa-solid fa-address-card"
+              style={{ fontSize: "1.5em" }}
+            />
+          </NavIcon>
+          <NavText
+            style={{
+              fontSize: "22px",
+              backgroundColor: "black",
+              width: "180px",
+            }}
+          >
+            Profile
+          </NavText>
         </NavItem>
         <NavItem eventKey="scenarios">
           <NavIcon>
@@ -34,7 +58,15 @@ export default function SideBar() {
               style={{ fontSize: "1.5em" }}
             />
           </NavIcon>
-          <NavText style={{ fontSize: "22px" }}>Scenarios</NavText>
+          <NavText
+            style={{
+              fontSize: "22px",
+              backgroundColor: "black",
+              width: "180px",
+            }}
+          >
+            Scenarios
+          </NavText>
         </NavItem>
 
         <NavItem eventKey="booking">
@@ -44,19 +76,43 @@ export default function SideBar() {
               style={{ fontSize: "1.5em" }}
             />
           </NavIcon>
-          <NavText style={{ fontSize: "22px" }}>Booking</NavText>
+          <NavText
+            style={{
+              fontSize: "22px",
+              backgroundColor: "black",
+              width: "180px",
+            }}
+          >
+            Booking
+          </NavText>
         </NavItem>
-        <NavItem eventKey="receipt">
+        {/* <NavItem eventKey="receipt">
           <NavIcon>
             <i className="fa-solid fa-receipt" style={{ fontSize: "1.5em" }} />
           </NavIcon>
-          <NavText style={{ fontSize: "22px" }}>Receipt</NavText>
-        </NavItem>
-        <NavItem eventKey="coupon">
+          <NavText
+            style={{
+              fontSize: "22px",
+              backgroundColor: "black",
+              width: "180px",
+            }}
+          >
+            Receipt
+          </NavText>
+        </NavItem> */}
+        <NavItem eventKey="coupons">
           <NavIcon>
             <i className="fa-solid fa-ticket" style={{ fontSize: "1.5em" }} />
           </NavIcon>
-          <NavText style={{ fontSize: "22px" }}>Coupon</NavText>
+          <NavText
+            style={{
+              fontSize: "22px",
+              backgroundColor: "black",
+              width: "180px",
+            }}
+          >
+            Coupons
+          </NavText>
         </NavItem>
       </SideNav.Nav>
     </SideNav>

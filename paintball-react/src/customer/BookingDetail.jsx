@@ -5,14 +5,15 @@ import { useNavigate } from "react-router-dom";
 
 export default function Detail() {
   const navigate = useNavigate();
-  const [customer, setCustomer] = useState(null); // State to store customer ID
   axios.defaults.withCredentials = true;
+  const [customer, setCustomer] = useState(null); // State to store customer ID
+
   useEffect(() => {
     axios
       .get("http://localhost:3000/verifyCustomer")
       .then((res) => {
         if (res.data.status) {
-          const fetchedCustomer = res.data.customer;
+          const fetchedCustomer = res.data.customer.customer;
           if (fetchedCustomer) {
             setCustomer(fetchedCustomer);
           } else {

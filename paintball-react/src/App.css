@@ -99,6 +99,16 @@ html body {
   color: var(--main-accent);
 }
 
+a {
+  text-decoration: none;
+  color: var(--second-accent);
+}
+
+a:hover {
+  text-decoration: none;
+  color: var(--main-accent);
+}
+
 @keyframes logo-spin {
   from {
     transform: rotate(0deg);

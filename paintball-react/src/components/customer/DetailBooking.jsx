@@ -7,6 +7,7 @@ export default function DetailBooking() {
   const value = useParams();
   const [detail, setDetail] = useState(null);
   const navigate = useNavigate();
+
   useEffect(() => {
     const getBooking = async () => {
       let response = await fetch(

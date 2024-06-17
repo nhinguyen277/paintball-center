@@ -13,7 +13,7 @@ export default function Add() {
       .get("http://localhost:3000/verifyCustomer")
       .then((res) => {
         if (res.data.status) {
-          const fetchedCustomer = res.data.customer;
+          const fetchedCustomer = res.data.customer.customer;
           if (fetchedCustomer) {
             setCustomer(fetchedCustomer);
           } else {
@@ -105,8 +105,9 @@ export default function Add() {
       if (response.ok) {
         alert("Booking created successfully");
         navigate("/customer/booking");
+        window.location.reload();
       } else {
-        console.error("Error response from server:", result);
+        // console.error("Error response from server:", result);
         alert(`Error: ${result.message}`);
       }
     } catch (error) {
@@ -174,7 +175,7 @@ export default function Add() {
                   htmlFor="coupon"
                   className={`form-label ${styles.labelForm}`}
                 >
-                  Coupon:
+                  Coupon Code:
                 </label>
                 <input
                   type="text"

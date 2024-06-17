@@ -14,7 +14,7 @@ export default function Booking() {
       .get("http://localhost:3000/verifyCustomer")
       .then((res) => {
         if (res.data.status) {
-          const fetchedCustomer = res.data.customer;
+          const fetchedCustomer = res.data.customer.customer;
           if (fetchedCustomer) {
             setCustomer(fetchedCustomer);
           } else {
@@ -27,12 +27,18 @@ export default function Booking() {
       .catch((error) => {
         console.error("Error fetching customer data:", error);
       });
+    // Dynamically import Bootstrap CSS
+    const bootstrapLink = document.createElement("link");
+    bootstrapLink.rel = "stylesheet";
+    bootstrapLink.href =
+      "https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css";
+    document.head.appendChild(bootstrapLink);
+
+    return () => {
+      document.head.removeChild(bootstrapLink);
+    };
   }, []);
 
-  useEffect(() => {
-    // Dynamically import Bootstrap CSS
-    import("bootstrap/dist/css/bootstrap.min.css");
-  }, []);
   return (
     <>
       <div className={styles.adminContainer}>

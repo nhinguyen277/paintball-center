@@ -38,7 +38,7 @@ export default function Dashboard() {
         <img src={target} className={styles.target} alt="target" />
         {customer && (
           <p>
-            Customer ID: {customer.firstname} {customer.lastname}
+            Customer: {customer.customer.firstname} {customer.customer.lastname}
           </p>
         )}
       </div>

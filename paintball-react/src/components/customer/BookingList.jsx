@@ -35,7 +35,7 @@ export default function BookingList() {
       const getBooking = async () => {
         try {
           const response = await fetch(
-            `http://localhost:3000/api/customer/booking/${customer._id}`
+            `http://localhost:3000/api/customer/booking/${customer.customer._id}`
           );
           if (!response.ok) {
             throw new Error("Failed to fetch booking data");

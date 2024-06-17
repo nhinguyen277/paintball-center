@@ -27,7 +27,7 @@ export default function Schedule() {
         <div id="scenarioPart">
           <h1 className={styles.scenarioTitle}>All Schedules</h1>
           <div className={styles.addLink}>
-            <Link to="/schedule/add">Add A New Schedule</Link>
+            <Link to="/admin/schedule/add">Add A New Schedule</Link>
           </div>
 
           <table

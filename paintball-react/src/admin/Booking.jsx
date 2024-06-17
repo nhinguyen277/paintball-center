@@ -16,12 +16,18 @@ export default function Booking() {
         navigate("/admin");
       }
     });
+    // Dynamically import Bootstrap CSS
+    const bootstrapLink = document.createElement("link");
+    bootstrapLink.rel = "stylesheet";
+    bootstrapLink.href =
+      "https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css";
+    document.head.appendChild(bootstrapLink);
+
+    return () => {
+      document.head.removeChild(bootstrapLink);
+    };
   }, []);
 
-  useEffect(() => {
-    // Dynamically import Bootstrap CSS
-    import("bootstrap/dist/css/bootstrap.min.css");
-  }, []);
   return (
     <>
       <div className={styles.adminContainer}>

@@ -6,6 +6,7 @@ import axios from "axios";
 export default function EditBooking() {
   const { id } = useParams();
   const navigate = useNavigate();
+  const [customer, setCustomer] = useState(null);
   axios.defaults.withCredentials = true;
   useEffect(() => {
     axios.get("http://localhost:3000/verifyCustomer").then((res) => {
@@ -123,13 +124,13 @@ export default function EditBooking() {
       const result = await response.json();
       if (response.ok) {
         alert("Booking edited successfully");
-        navigate(`/admin/booking/${id}`);
+        navigate(`/customer/booking/${id}`);
       } else {
-        console.error("Error response from server:", result);
+        // console.error("Error response from server:", result);
         alert(`Error: ${result.message}`);
       }
     } catch (error) {
-      console.error("Error during fetch:", error);
+      // console.error("Error during fetch:", error);
       alert("Error editing booking");
     }
   };

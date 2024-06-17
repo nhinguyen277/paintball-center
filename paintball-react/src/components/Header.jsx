@@ -22,10 +22,6 @@ export default function Header() {
           <li>
             <Link to="/signin">Sign In</Link>
           </li>
-          <p>/</p>
-          <li>
-            <Link to="/register">Register</Link>
-          </li>
         </ul>
       </div>
       <div className={styles.menuToggle} onClick={() => setMenuOpen(!menuOpen)}>
@@ -48,7 +44,7 @@ export default function Header() {
         id="hidden"
         className={styles.dropdown}
         style={{
-          height: menuOpen ? "230px" : "0",
+          height: menuOpen ? "200px" : "0",
           marginTop: menuOpen ? "20px" : "0",
           // display: menuOpen ? "block" : "none",
           transitionDelay: menuOpen ? "0s" : "0s",
@@ -59,7 +55,7 @@ export default function Header() {
             <Link to="/">Home</Link>
           </li>
           <li>
-            <Link to="/scenarios">Scenarios</Link>
+            <Link to="/explore">Explore</Link>
           </li>
           <li>
             <Link to="/about">About Us</Link>

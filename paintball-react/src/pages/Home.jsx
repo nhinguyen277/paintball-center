@@ -11,7 +11,7 @@ export default function Home() {
           <img className={styles.imgBanner} src={banner} alt="banner" />
           <div className={styles.titleBanner}>
             <h2>Start Your Adventures Now!</h2>
-            <Link to="/scenarios" className={styles.explore}>
+            <Link to="/explore" className={styles.explore}>
               Explore
             </Link>
           </div>
@@ -47,8 +47,8 @@ export default function Home() {
                   Prepare for a fierce battle with unwavering determination.
                 </h4>
               </div>
-              <Link to="/scenarios" className={styles.explore}>
-                Enter
+              <Link to="/explore" className={styles.explore}>
+                Explore
               </Link>
             </div>
           </div>
@@ -64,8 +64,8 @@ export default function Home() {
                   essential.
                 </h4>
               </div>
-              <Link to="/scenarios" className={styles.explore}>
-                Enter
+              <Link to="/explore" className={styles.explore}>
+                Explore
               </Link>
             </div>
             <img className={styles.imgPost} src={post2} alt="blackbox" />

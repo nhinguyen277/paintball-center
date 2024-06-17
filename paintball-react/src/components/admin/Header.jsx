@@ -39,12 +39,14 @@ export default function Header() {
 
   return (
     <header id="header" className={styles.headContainer}>
-      <Link to="/">
-        <img src={logo} className={styles.logo} alt="logo" />
-      </Link>
-      <h1 id="site-name" className={styles.siteName}>
-        <Link to="/">Epic Paintball Adventures</Link>
-      </h1>
+      <div className={styles.nameLogo}>
+        <Link to="/">
+          <img src={logo} className={styles.logo} alt="logo" />
+        </Link>
+        <h1 id="site-name" className={styles.siteName}>
+          <Link to="/">Epic Paintball Adventures</Link>
+        </h1>
+      </div>
       <div className="adminLogout">
         {isAuthenticated ? (
           <button onClick={handleSignOut}>Sign Out</button>

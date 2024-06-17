@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 export default function Booking(props) {
   return (
     <tr>
-      <th scope="row">{props.id}</th>
+      <th scope="row">{props._id}</th>
       <td>{props.title}</td>
       <td>{props.date}</td>
       <td>{props.time}</td>

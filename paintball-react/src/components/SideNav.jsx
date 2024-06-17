@@ -69,7 +69,24 @@ export default function MySideNav() {
             Booking
           </NavText>
         </NavItem>
-        <NavItem eventKey="receipt">
+        <NavItem eventKey="schedules">
+          <NavIcon>
+            <i
+              className="fa-solid fa-calendar-days"
+              style={{ fontSize: "1.5em" }}
+            />
+          </NavIcon>
+          <NavText
+            style={{
+              fontSize: "22px",
+              backgroundColor: "black",
+              width: "180px",
+            }}
+          >
+            Schedules
+          </NavText>
+        </NavItem>
+        {/* <NavItem eventKey="receipt">
           <NavIcon>
             <i className="fa-solid fa-receipt" style={{ fontSize: "1.5em" }} />
           </NavIcon>
@@ -82,8 +99,8 @@ export default function MySideNav() {
           >
             Receipt
           </NavText>
-        </NavItem>
-        <NavItem eventKey="coupon">
+        </NavItem> */}
+        <NavItem eventKey="coupons">
           <NavIcon>
             <i className="fa-solid fa-ticket" style={{ fontSize: "1.5em" }} />
           </NavIcon>
@@ -97,7 +114,7 @@ export default function MySideNav() {
             Coupon
           </NavText>
         </NavItem>
-        <NavItem eventKey="membership">
+        <NavItem eventKey="memberships">
           <NavIcon>
             <i className="fa-solid fa-crown" style={{ fontSize: "1.5em" }} />
           </NavIcon>

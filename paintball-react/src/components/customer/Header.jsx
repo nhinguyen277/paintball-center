@@ -3,7 +3,7 @@ import styles from "../../css/styles.module.css";
 import logo from "../../img/logo.png";
 // import { useState } from "react";
 import { Link, useNavigate, Navigate } from "react-router-dom";
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import axios from "axios";
 
 export default function Header() {
@@ -13,24 +13,27 @@ export default function Header() {
       .get("http://localhost:3000/signout")
       .then((res) => {
         if (res.data.status) {
-          navigate("/signin");
+          navigate("");
         }
       })
       .catch((err) => {
         console.log(err);
       });
   };
-  //   const [menuOpen, setMenuOpen] = useState(false);
+  const [menuOpen, setMenuOpen] = useState(false);
   //The return statement below returns a JSX element (one root element but you can have others inside the root element).
   return (
     <header id="header" className={styles.headContainer}>
       {/* This is JSX. */}
-      <a href="/">
-        <img src={logo} className={styles.logo} alt="logo" />
-      </a>
-      <h1 id="site-name" className={styles.siteName}>
-        <a href="/">Epic Paintball Adventures</a>
-      </h1>
+      <div className={styles.nameLogo}>
+        <a href="/">
+          <img src={logo} className={styles.logo} alt="logo" />
+        </a>
+        <h1 id="site-name" className={styles.siteName}>
+          <a href="/">Epic Paintball Adventures</a>
+        </h1>
+      </div>
+
       <Nav />
       <div className={styles.signOut}>
         <button onClick={handleSignout}>Sign Out</button>
@@ -46,12 +49,12 @@ export default function Header() {
         </ul> */}
         {/* <button>Sign Out</button> */}
       </div>
-      {/* <div className={styles.menuToggle} onClick={() => setMenuOpen(!menuOpen)}>
+      <div className={styles.menuToggle} onClick={() => setMenuOpen(!menuOpen)}>
         <button
           className={`${styles.hamBox} ${menuOpen ? styles.hamBoxOpen : ""}`}
-        > */}
-      {/* <img className={styles.ham} src={menu} alt="menu" /> */}
-      {/* <span
+        >
+          {/* <img className={styles.ham} src={menu} alt="menu" /> */}
+          <span
             className={`${styles.lineTop} ${menuOpen ? styles.spin : ""}`}
           ></span>
           <span
@@ -60,8 +63,8 @@ export default function Header() {
           <span
             className={`${styles.lineBottom} ${menuOpen ? styles.spin : ""}`}
           ></span>
-        </button> */}
-      {/* </div>
+        </button>
+      </div>
       <div
         id="hidden"
         className={styles.dropdown}
@@ -71,8 +74,8 @@ export default function Header() {
           // display: menuOpen ? "block" : "none",
           transitionDelay: menuOpen ? "0s" : "0s",
         }}
-      > */}
-      {/* <ul>
+      >
+        <ul>
           <li>
             <Link to="/">Home</Link>
           </li>
@@ -85,12 +88,12 @@ export default function Header() {
           <li>
             <Link to="/contact">Contact</Link>
           </li>
-          <li className={styles.signRe}>
-            <Link to="/signin">Sign In</Link>/
-            <Link to="/register">Register</Link>
+          <li className={styles.signOut1}>
+            <button onClick={handleSignout}>Sign Out</button>
           </li>
+          {/* <li></li> */}
         </ul>
-      </div> */}
+      </div>
     </header>
   );
 }

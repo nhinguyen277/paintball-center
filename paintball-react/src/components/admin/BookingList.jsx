@@ -13,7 +13,7 @@ export default function BookingList() {
     getBooking();
   }, []);
 
-  return booking.map((b) => (
+  return booking.map((b, index) => (
     <Booking
       key={
         b._id +
@@ -25,6 +25,7 @@ export default function BookingList() {
         b.schedule.time
       }
       id={b._id}
+      _id={index + 1}
       title={b.scenario.title}
       date={b.schedule.date}
       time={b.schedule.time}

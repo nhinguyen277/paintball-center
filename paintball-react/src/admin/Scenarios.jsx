@@ -2,7 +2,7 @@ import styles from "../css/styles.module.css";
 import Scenarios from "../components/admin/ScenarioList";
 import React, { useEffect } from "react";
 import axios from "axios";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 
 export default function Scenario() {
   const navigate = useNavigate();
@@ -20,6 +20,9 @@ export default function Scenario() {
       <div className={styles.adminContainer}>
         <div id="scenarioPart">
           <h1 className={styles.scenarioTitle}>All Scenarios</h1>
+          <div className={styles.addLink}>
+            <Link to="/admin/scenarios/add">Add A Scenario</Link>
+          </div>
           <div id="scenarios" className={styles.scenarios}>
             <Scenarios />
           </div>

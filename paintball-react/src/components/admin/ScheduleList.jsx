@@ -13,10 +13,11 @@ export default function ScheduleList() {
     getSchedules();
   }, []);
 
-  return schedules.map((schedule) => (
+  return schedules.map((schedule, index) => (
     <Schedule
       key={schedule._id + schedule.date + schedule.time}
-      id={schedule._id}
+      _id={schedule._id}
+      id={index + 1}
       date={schedule.date}
       time={schedule.time}
     />

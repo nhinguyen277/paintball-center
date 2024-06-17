@@ -218,10 +218,11 @@ export default function Add() {
                   Phone Number:
                 </label>
                 <input
-                  type="text"
+                  type="tel"
                   className={`form-control ${styles.formColor}`}
                   aria-label="phone"
                   name="phone"
+                  maxLength="12"
                   value={formData.phone}
                   onChange={handleChange}
                   required
