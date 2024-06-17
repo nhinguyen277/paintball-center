@@ -30,7 +30,7 @@ app.use(express.json()); //need this line to be able to receive/parse JSON from 
 app.use(
   cors({
     origin: ["https://paintball-center.vercel.app"],
-    method: ["POST","GET"],
+    methods: ["GET","PUT","POST","DELETE"],
     credentials: true,
   })
 );
