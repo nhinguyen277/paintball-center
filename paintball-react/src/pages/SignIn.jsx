@@ -18,7 +18,7 @@ export default function SignIn() {
   const handleSubmit = (e) => {
     e.preventDefault();
     axios
-      .post("http://localhost:3000/signin", { email, password })
+      .post("https://paintball-center-api.vercel.app/signin", { email, password })
       .then((result) => {
         // console.log(result);
         if (result.data === "Success") {
