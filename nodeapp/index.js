@@ -29,7 +29,7 @@ app.use(express.json()); //need this line to be able to receive/parse JSON from 
 //allow requests from all servers
 app.use(
   cors({
-    origin: ["http://localhost:5173"],
+    origin: ["https://paintball-center.vercel.app"],
     credentials: true,
   })
 );
