@@ -8,7 +8,7 @@ export default function Add() {
   const navigate = useNavigate();
   axios.defaults.withCredentials = true;
   useEffect(() => {
-    axios.get("https://paintball-center-api.vercel.app/verify").then((res) => {
+    axios.get("http://localhost:3000/verify").then((res) => {
       if (res.data.status) {
       } else {
         navigate("/admin");
@@ -34,7 +34,7 @@ export default function Add() {
 
   // Fetch all scenarios
   useEffect(() => {
-    fetch("https://paintball-center-api.vercel.app/api/scenarios")
+    fetch("http://localhost:3000/api/scenarios")
       .then((response) => response.json())
       .then((data) => {
         setScenarios(data);
@@ -45,7 +45,7 @@ export default function Add() {
   // Fetch schedules when a scenario is selected
   useEffect(() => {
     if (formData.scenarioId) {
-      fetch(`https://paintball-center-api.vercel.app/api/schedules/${formData.scenarioId}`)
+      fetch(`http://localhost:3000/api/schedules/${formData.scenarioId}`)
         .then((response) => response.json())
         .then((data) => {
           setSchedules(data);
@@ -66,7 +66,7 @@ export default function Add() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await fetch("https://paintball-center-api.vercel.app/admin/booking/add", {
+      const response = await fetch("http://localhost:3000/admin/booking/add", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
