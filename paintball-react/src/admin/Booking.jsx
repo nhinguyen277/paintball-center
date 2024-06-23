@@ -11,9 +11,10 @@ export default function Booking() {
   axios.defaults.withCredentials = true;
   useEffect(() => {
     axios.get("http://localhost:3000/verify").then((res) => {
-      if (res.data.status) {
-      } else {
+      // console.log("dashboard:", res.data);
+      if (res.data.message === "no token" || res.data.mes === "Forbidden") {
         navigate("/admin");
+      } else {
       }
     });
     // Dynamically import Bootstrap CSS

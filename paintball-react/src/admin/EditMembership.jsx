@@ -15,11 +15,13 @@ export default function EditCoupon() {
 
   useEffect(() => {
     axios.get("http://localhost:3000/verify").then((res) => {
-      if (!res.data.status) {
+      // console.log("dashboard:", res.data);
+      if (res.data.message === "no token" || res.data.mes === "Forbidden") {
         navigate("/admin");
+      } else {
       }
     });
-  }, [navigate]);
+  }, []);
 
   useEffect(() => {
     // Fetch the existing coupon data to populate the form

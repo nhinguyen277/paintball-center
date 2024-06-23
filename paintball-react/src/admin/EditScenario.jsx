@@ -18,11 +18,13 @@ export default function EditScenario() {
 
   useEffect(() => {
     axios.get("http://localhost:3000/verify").then((res) => {
-      if (!res.data.status) {
+      // console.log("dashboard:", res.data);
+      if (res.data.message === "no token" || res.data.mes === "Forbidden") {
         navigate("/admin");
+      } else {
       }
     });
-  }, [navigate]);
+  }, []);
 
   useEffect(() => {
     // Fetch the existing scenario data to populate the form

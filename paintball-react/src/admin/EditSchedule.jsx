@@ -10,11 +10,13 @@ export default function Edit() {
 
   useEffect(() => {
     axios.get("http://localhost:3000/verify").then((res) => {
-      if (!res.data.status) {
+      // console.log("dashboard:", res.data);
+      if (res.data.message === "no token" || res.data.mes === "Forbidden") {
         navigate("/admin");
+      } else {
       }
     });
-  }, [navigate]);
+  }, []);
 
   useEffect(() => {
     // Dynamically import Bootstrap CSS
@@ -32,8 +34,21 @@ export default function Edit() {
         const response = await axios.get(
           `http://localhost:3000/api/schedule/${id}`
         );
-        const { date, time } = response.data; // Assuming your API returns date and time fields
-        setFormData({ date, time });
+        const dateTime = new Date(response.data.date);
+        if (dateTime) {
+          // Extract date in YYYY-MM-DD format (if needed)
+          const date = dateTime.toISOString().split("T")[0];
+          // Convert UTC time to local time for display
+          const time = new Date(
+            dateTime.getTime() - dateTime.getTimezoneOffset() * 60000
+          ).toLocaleTimeString([], {
+            hour: "2-digit",
+            minute: "2-digit",
+            hour12: false,
+          });
+
+          setFormData({ date, time });
+        }
       } catch (error) {
         console.error("Error fetching schedule:", error);
       }

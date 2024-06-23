@@ -87,7 +87,7 @@ app.post("/register", async (request, response) => {
       deleted_at: deleted,
     };
     account(infor);
-    response.redirect("http://localhost:5173/signin");
+    response.json("success");
   });
   //redirect back to sign in page
 });
@@ -100,14 +100,14 @@ app.post("/signin", async (request, response) => {
     bcrypt.compare(pass, user.password, (err, res) => {
       if (res) {
         const token = jwt.sign(
-          { email: user.email, id: user._id },
+          { email: user.email, id: user._id, role: "customer" },
           process.env.KEY,
           {
             expiresIn: "1h",
           }
         );
         response.cookie("token", token, { maxAge: 3600000 });
-        response.json("Success");
+        response.json({ Status: "Success", role: "customer" });
         // response.redirect("http://localhost:5173");
       } else {
         response.json("The password is incorrect");
@@ -127,13 +127,17 @@ app.post("/admin", async (request, response) => {
   if (admin) {
     bcrypt.compare(pass, admin.password, (err, res) => {
       if (res) {
-        const token = jwt.sign({ email: admin.email }, process.env.KEY, {
-          expiresIn: "3h",
-        });
+        const token = jwt.sign(
+          { email: admin.email, role: "admin" },
+          process.env.KEY,
+          {
+            expiresIn: "3h",
+          }
+        );
         response.cookie("token", token, {
           maxAge: 10800000,
         });
-        response.json("Success");
+        response.json({ status: "Success", role: "admin" });
         // response.redirect("http://localhost:5173");
       } else {
         response.json("The password is incorrect");
@@ -162,24 +166,42 @@ const verifyUser = async (request, response, next) => {
     });
   }
 };
+const verifyAdmin = (request, response, next) => {
+  if (request.user.role !== "admin") {
+    return response.json({ mes: "Forbidden" });
+  }
+  next();
+};
 
-app.get("/verify", verifyUser, (request, response) => {
-  return response.json({ status: true, message: "authorized" });
+const verifyCustomer = (request, response, next) => {
+  if (request.user.role !== "customer") {
+    return response.json({ message: "Forbidden" });
+  }
+  next();
+};
+app.get("/verify", verifyUser, verifyAdmin, (request, response) => {
+  return response.json({ status: true, message: "authorized", role: "admin" });
 });
-app.get("/verifyCustomer", verifyUser, async (request, response) => {
-  // Assuming the customer ID is stored in the request object after verification
-  const customerId = request.user.id; // Adjust this based on your implementation
-  const customer = await getCustomerDetail(customerId);
-  // Send the customer ID along with the response
-  const membership = customer.membership;
-  return response.json({
-    status: true,
-    customerId: customerId,
-    customer: customer,
-    membership: membership,
-    message: "authorized",
-  });
-});
+app.get(
+  "/verifyCustomer",
+  verifyUser,
+  verifyCustomer,
+  async (request, response) => {
+    // Assuming the customer ID is stored in the request object after verification
+    const customerId = request.user.id; // Adjust this based on your implementation
+    const customer = await getCustomerDetail(customerId);
+    // Send the customer ID along with the response
+    const membership = customer.membership;
+    return response.json({
+      status: true,
+      customerId: customerId,
+      customer: customer,
+      membership: membership,
+      message: "authorized",
+      role: "customer",
+    });
+  }
+);
 
 // app.get("/customer/:id", verifyUser, async (request, response) => {
 //   try {

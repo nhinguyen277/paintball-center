@@ -23,7 +23,6 @@ export default function Register() {
         phone,
       })
       .then((result) => {
-        console.log(result);
         navigate("/signin");
       })
       .catch((err) => console.log(err));

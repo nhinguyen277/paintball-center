@@ -11,7 +11,7 @@ import About from "./pages/About";
 import Contact from "./pages/Contact";
 import SignIn from "./pages/SignIn";
 import BookingInfor from "./pages/BookingInfor";
-import { AuthProvider } from "./customer/Auth";
+import { AuthProvider } from "./components/Auth";
 import Register from "./pages/Register";
 import CustomerDashboard from "./customer/Dashboard";
 import Profile from "./customer/Profile";

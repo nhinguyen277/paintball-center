@@ -4,11 +4,13 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { FiUser } from "react-icons/fi";
 import { IoIosLock } from "react-icons/io";
-import { useState } from "react";
+import { useState, useContext } from "react";
 import axios from "axios";
+import Auth from "../components/Auth";
 import { useNavigate } from "react-router-dom";
 
 export default function SignIn() {
+  const { setAuthenticatedUser } = useContext(Auth);
   const [email, setEmail] = useState();
   const [password, setPassword] = useState();
   const navigate = useNavigate();
@@ -19,9 +21,13 @@ export default function SignIn() {
     axios
       .post("http://localhost:3000/admin", { email, password })
       .then((result) => {
-        if (result.data === "Success") {
-          navigate("/admin/dashboard");
-          window.location.reload(); // Force a reload to update the state in the Header component
+        console.log(result);
+        if (result.data.status === "Success") {
+          if (result.data.role === "admin") {
+            setAuthenticatedUser(result);
+            navigate("/admin/dashboard");
+            window.location.reload(); // Force a reload to update the state in the Header component
+          }
         } else if (result.data === "The password is incorrect") {
           alert("Please enter the correct password");
         } else {

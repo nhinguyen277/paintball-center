@@ -19,9 +19,11 @@ export default function Header() {
   const verifyUser = async () => {
     try {
       const response = await axios.get("http://localhost:3000/verify");
+      // console.log("header:", response);
       setIsAuthenticated(response.data.status);
     } catch (error) {
-      console.error("Error verifying user:", error);
+      // console.error("Error verifying user:", error);
+      navigate("/admin");
     }
   };
 

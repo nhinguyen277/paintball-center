@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 import { FiUser } from "react-icons/fi";
 import { IoIosLock } from "react-icons/io";
 import { useState, useContext } from "react";
-import Auth from "../customer/Auth";
+import Auth from "../components/Auth";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 
@@ -20,10 +20,12 @@ export default function SignIn() {
     axios
       .post("http://localhost:3000/signin", { email, password })
       .then((result) => {
-        // console.log(result);
-        if (result.data === "Success") {
-          setAuthenticatedUser(result);
-          navigate("/customer/dashboard");
+        console.log(result);
+        if (result.data.Status === "Success") {
+          if (result.data.role === "customer") {
+            setAuthenticatedUser(result);
+            navigate("/customer/dashboard");
+          }
         } else if (result.data === "The password is incorrect") {
           navigate("/signin");
           alert("please enter the right password");
