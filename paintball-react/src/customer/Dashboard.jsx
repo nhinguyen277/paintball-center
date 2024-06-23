@@ -11,7 +11,7 @@ export default function Dashboard() {
 
   useEffect(() => {
     axios
-      .get("https://paintball-center-api.vercel.app/verifyCustomer")
+      .get("http://localhost:3000/verifyCustomer")
       .then((res) => {
         if (res.data.status) {
           const fetchedCustomer = res.data.customer;
